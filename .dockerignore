@@ -1,0 +1,3 @@
+# flyctl launch added from .gitignore
+**/CourseProject2.zip
+fly.toml

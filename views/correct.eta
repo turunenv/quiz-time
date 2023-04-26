@@ -1,0 +1,5 @@
+<% layout("./layouts/layout.eta")%>
+<%~ includeFile("./partials/menu.eta")%>
+
+<h2>Correct!</h2>
+<p><a href="/quiz">Next question</a></p>

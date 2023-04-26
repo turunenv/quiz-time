@@ -1,0 +1,19 @@
+<% layout("./layouts/layout.eta") %>
+<%~ includeFile("./partials/menu.eta")%>
+
+<h2>Incorrect!</h2>
+
+<% if (it.answerTexts.length === 1) { %>
+    <p>The right answer was: <%= it.answerTexts[0] %></p>
+<% } else if (it.answerTexts.length > 1) { %>
+    <p>The right answers were:</p>
+    <ul>
+        <% it.answerTexts.forEach(ans => { %>
+            <li><%= ans %></li>
+        <% }); %>
+    </ul>
+<% } else { %>
+    <p>You were bamboozled, there were no right answers!</p>
+<% }; %>
+
+<p><a href="/quiz">Next question</a></p>

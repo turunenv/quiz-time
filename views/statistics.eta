@@ -1,0 +1,42 @@
+<% layout("./layouts/layout.eta")%>
+<%~ includeFile("./partials/menu.eta")%>
+
+<h2>Statistics!</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Total number of questions answered</th>
+            <th>Total number of correct answers</th>
+            <th>Percentage of right answers</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= it.answerCount %></td>
+            <td><%= it.correctAnswerCount %></td>
+            <td><%= it.percentageStr %></td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Your questions have been answered <b><%= it.ownQuestionsAnswerCount %></b> times.</p>
+<br><br>
+
+<h3>Users with the most answered questions</h3>
+<table>
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Questions answered</th>
+        </tr>  
+    </thead>
+    <tbody>
+        <% it.topFive.forEach(user => { %>
+            <tr>
+                <td><%= user[0] %></td>
+                <td><%= user[1] %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>

@@ -1,0 +1,8 @@
+<% layout("./layouts/layout.eta")%>
+
+<h1>Welcome to Awesome Questionnares!</h1>
+<p>On this website, you will be able to create and answer hilarious multiple choice questions.</p>
+<p>Continue by logging in or registering!</p><br>
+
+<p><a href="/auth/login">Login</a></p>
+<p><a href="/auth/register">Register</a></p>

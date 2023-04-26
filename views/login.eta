@@ -1,0 +1,19 @@
+<% layout("./layouts/layout.eta") %>
+
+<h1>Login form</h1>
+<form action="/auth/login" method="post">
+    <label for="email">Email: </label>
+    <input type="email" name="email" id="email">
+
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password">
+
+    <input type="submit" value="Login">
+</form><br>
+
+<% if (it.failedLogin) { %>
+    <p><b>Incorrect login credentials, please try again.</b></p>
+<% }; %>
+
+<p><a href="/auth/register">Register</a></p>
+<p><a href="/">Home page</a></p>

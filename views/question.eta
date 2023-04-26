@@ -1,0 +1,46 @@
+<% layout("./layouts/layout.eta")%>
+<%~ includeFile("./partials/menu.eta")%>
+
+<h2><%= it.title %></h2>
+
+<p><%= it.question_text %></p>
+
+<h3>Add an answer option!</h3>
+
+<form action="/questions/<%= it.id %>/options" method="POST">
+
+    <label for="option_text">Answer option: </label>
+    <textarea name="option_text" id="option_text"
+              rows="5" cols="30"><%= it.option_text %></textarea><br>
+
+    <input type="checkbox" name="is_correct" id="is_correct" value="true"/>
+    <label for="is_correct">This is the correct answer </label><br><br>
+
+    <input type="submit" value="Submit answer option!" />
+</form>
+
+<% if (it.errors) { %>
+    <ul>
+        <% Object.keys(it.errors).forEach(input => { %>
+                <% Object.values(it.errors[input]).forEach(error => { %>
+                    <li><%= error %></li>
+                <% }); %>
+            <% }); %>
+    </ul>
+<% }; %>
+
+<h3>Answer options</h3>
+
+<% if (it.options && it.options.length > 0) { %>
+    <ul>
+        <% it.options.forEach((option) => { %>
+            <li><%= option.option_text %> <%= option.is_correct %> <form method="POST" 
+                                                                        action="/questions/<%= it.id %>/options/<%= option.id %>/delete">
+                                                                        <input type="submit" value="Delete option">
+                                                                    </form>
+            </li><br>
+        <% }); %>
+    </ul>
+<% } else { %>
+    <p>No answer options added yet.</p>
+<% }; %>
